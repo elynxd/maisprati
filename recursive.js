@@ -1,36 +1,36 @@
-// function factorial(n) {
-//     let cal = 0;
-//     if (n === 0) {
-//         return 1
-//     } else {
-//         cal = n * factorial(n -1)
+function factorial(n) {
+    let cal = 0;
+    if (n === 0) {
+        return 1
+    } else {
+        cal = n * factorial(n -1)
 
-//         return cal
-//     }
-// }
-// console.log(factorial(5));
+        return cal
+    }
+}
+console.log(factorial(5));
 
 
-// function sum(n) {
-//     if(n === 1) {
-//         return 1
-//     } else {
-//         return n + sum(--n)
-//     }
-// }
+function sum(n) {
+    if(n === 1) {
+        return 1
+    } else {
+        return n + sum(--n)
+    }
+}
 
-// console.log(sum(5))
+console.log(sum(5))
 
-// function fiboRecursive(n) {
-//     if (n === 0) {
-//         return 0
-//     } else if (n === 1) {
-//         return 1
-//     } else {
-//         return fiboRecursive(n - 1) + fiboRecursive(n - 2)
-//     }
-// }
-// console.log(fiboRecursive(6))
+function fiboRecursive(n) {
+    if (n === 0) {
+        return 0
+    } else if (n === 1) {
+        return 1
+    } else {
+        return fiboRecursive(n - 1) + fiboRecursive(n - 2)
+    }
+}
+console.log(fiboRecursive(6))
 
 const categories = [
     {
