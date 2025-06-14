@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input id="busca" placeholder="Digite Algo..."></input>
+    
+</body>
+
+<script>
+    function debouce(fn, delay) {
+        let timer = null
+
+        return function(...args) {
+            clearTimeout(timer)
+
+            timer = setTimeout(() => {
+                fn.apply(this, args)
+            }, delay)
+        }
+    }
+
+    function pesquisar(texto) {
+        console.log("Buscando por: ", texto)
+    }
+
+    let pesquisaDebouced = debouce(pesquisar, 3000)
+
+document.getElementById('busca').addEventListener('input', event => {
+        pesquisaDebouced(event.target.value)
+    })
+</script>
+</html>
+
