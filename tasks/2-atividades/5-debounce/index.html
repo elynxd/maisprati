@@ -7,18 +7,17 @@
 </head>
 <body>
     <input id="busca" placeholder="Digite Algo..."></input>
-    
 </body>
 
 <script>
-    function debouce(fn, delay) {
+    function debouce(func, delay) {
         let timer = null
 
         return function(...args) {
             clearTimeout(timer)
 
             timer = setTimeout(() => {
-                fn.apply(this, args)
+                func.apply(this, args)
             }, delay)
         }
     }
