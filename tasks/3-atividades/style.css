@@ -17,6 +17,7 @@ header {
     text-align: center;
     border-bottom: 1px solid #8d8d8d;
     box-shadow: 0 3px 3px rgba(0, 0, 0, 0.1);
+    position: relative;
 }
 
 h1 {
@@ -29,6 +30,73 @@ header h2 {
     font-size: 1.5em;
     padding-top: 1rem;
     font-weight: 500;
+}
+
+/* Navigation simples */
+.nav-toggle {
+    display: none;
+    background: white;
+    color: #333;
+    border: 1px solid #ddd;
+    padding: 8px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 14px;
+}
+
+.nav-toggle::before {
+    content: "Menu";
+}
+
+.nav-menu {
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+    margin: 10px 0 0 0;
+    padding: 0;
+    justify-content: center;
+}
+
+.nav-menu li a {
+    color: white;
+    text-decoration: none;
+    padding: 5px 10px;
+    border-radius: 3px;
+}
+
+.nav-menu li a:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+@media (max-width: 768px) {
+    .nav-toggle {
+        display: block;
+    }
+    
+    .nav-menu {
+        display: none;
+        flex-direction: column;
+        background-color: #838fbb;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        padding: 20px 0;
+        text-align: center;
+    }
+    
+    .nav-menu_visible {
+        display: flex;
+    }
+    
+    .nav-menu li a {
+        display: block;
+        padding: 15px;
+        font-size: 1.1em;
+    }
 }
 
 h2 {
@@ -201,4 +269,41 @@ footer {
     #feedback-form textarea {
         padding: 10px 12px;
     }
+}
+
+/* Grid layout for images */
+
+#grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 2rem;
+}
+
+@media screen and (max-width: 768px) {
+    #grid {
+        grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    }
+    
+}
+
+div.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 44px 0;
+    width: 80%;
+    margin: auto;
+}
+
+.image-container {
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.image-container img {
+    width: 150px;
+    height: 150px;
+    height: auto;
+    display: block;
 }
