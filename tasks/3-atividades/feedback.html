@@ -4,6 +4,7 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Formulario</title>
+        <link rel="stylesheet" href="style.css" />
     </head>
     <body>
         <form id="feedback-form">
@@ -29,4 +30,18 @@
             <button type="submit">Enviar Feedback</button>
         </form>
     </body>
+    <script>
+        function cleanData() {
+            document.getElementById("feedback-form").reset();
+        }
+
+        document
+            .getElementById("feedback-form")
+            .addEventListener("submit", function (e) {
+                e.preventDefault();
+                alert("Obrigado seu feedback enviado com sucesso!");
+
+                cleanData();
+            });
+    </script>
 </html>
