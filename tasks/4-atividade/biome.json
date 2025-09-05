@@ -57,5 +57,10 @@
         "formatter": {
             "trailingCommas": "none"
         }
+    },
+    "css": {
+        "formatter": {
+            "lineWidth": 80
+        }   
     }
 }
