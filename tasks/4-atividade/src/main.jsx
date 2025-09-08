@@ -5,6 +5,7 @@ import { App } from "./App.jsx";
 import { Home } from "./pages/Home.jsx";
 import { Movie } from "./pages/Movie.jsx";
 import { Search } from "./pages/Search.jsx";
+import { WishlistPage } from "./pages/WishlistPage.jsx";
 
 createRoot(document.getElementById("root")).render(
     <BrowserRouter>
@@ -13,6 +14,11 @@ createRoot(document.getElementById("root")).render(
                 <Route path="/" element={<Home />} />
                 <Route path="/movie/:id" element={<Movie />} />
                 <Route path="/search" element={<Search />} />
+                <Route path="/wishlist" element={<WishlistPage />} />
+                <Route
+                    path="*"
+                    element={<h1 className="text-zinc-50">404 - Página não encontrada</h1>}
+                />
             </Route>
         </Routes>
     </BrowserRouter>
