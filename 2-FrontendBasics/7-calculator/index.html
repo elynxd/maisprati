@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="styles.css" />
+        <title>Calculator</title>
+    </head>
+    <body>
+        <div class="calculator">
+            <form id="calculator-form">
+                <input type="text" id="display" readonly />
+                <div class="buttons">
+                    <button onclick="clearDisplay()">C</button>
+                    <button onclick="deleteCharacter()">DEL</button>
+                    <button value="%" onclick="porcentage()">%</button>
+                    <button value="/" onclick="insert('/')">/</button>
+                    <button value="7" onclick="insert('7')">7</button>
+                    <button value="8" onclick="insert('8')">8</button>
+                    <button value="9" onclick="insert('9')">9</button>
+                    <button value="*" onclick="insert('*')">*</button>
+                    <button value="4" onclick="insert('4')">4</button>
+                    <button value="5" onclick="insert('5')">5</button>
+                    <button value="6" onclick="insert('6')">6</button>
+                    <button value="-" onclick="insert('-')">-</button>
+                    <button value="1" onclick="insert('1')">1</button>
+                    <button value="2" onclick="insert('2')">2</button>
+                    <button value="3" onclick="insert('3')">3</button>
+                    <button value="+" onclick="insert('+')">+</button>
+                    <button value="0" onclick="insert('0')">0</button>
+                    <button value="." onclick="insert('.')">.</button>
+                    <button value="=" onclick="calculateResult()">=</button>
+                </div>
+            </form>
+        </div>
+    </body>
+    <script>
+        document
+            .getElementById("calculator-form")
+            .addEventListener("submit", function (event) {
+                event.preventDefault();
+            });
+
+        function insert(value) {
+            const display = document.getElementById("display");
+
+            if (display.value.length < 14) {
+                if (
+                    isOperator(value) &&
+                    isOperator(display.value[display.value.length - 1])
+                ) {
+                    return; // Prevent consecutive operators
+                }
+            }
+            display.value += value;
+        }
+
+        function calculateResult() {
+            const display = document.getElementById("display");
+            try {
+                display.value = eval(display.value);
+            } catch (error) {
+                display.value = "Error";
+            }
+        }
+
+        function clearDisplay() {
+            const display = document.getElementById("display");
+            display.value = "";
+        }
+
+        function deleteCharacter() {
+            const display = document.getElementById("display");
+            display.value = display.value.slice(0, -1);
+        }
+
+        function isOperator(value) {
+            return ["+", "-", "*", "/", "."].includes(value);
+        }
+
+        function porcentage() {
+            const display = document.getElementById("display");
+            try {
+                display.value = eval(display.value) / 100;
+            } catch (error) {
+                display.value = "Error";
+            }
+        }
+    </script>
+</html>

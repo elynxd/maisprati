@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Todo List - Compras</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+            rel="stylesheet"
+        />
+        <link href="style.css" rel="stylesheet" />
+    </head>
+    <body>
+        <div id="container">
+            <h1>
+                Lista de compras da(o)
+                <p id="nome"></p>
+            </h1>
+            <form id="todo-form">
+                <div class="input-group">
+                    <input
+                        id="input-item"
+                        type="text"
+                        placeholder="O que você quer comprar?"
+                        autofocus
+                        required
+                    />
+                    <button
+                        class="add"
+                        style="vertical-align: middle"
+                        type="submit"
+                    >
+                        <span>Add</span>
+                    </button>
+                    <button type="button" id="btn-clear">Limpar lista</button>
+                </div>
+                <div class="filter-group">
+                    <span id="total">Total: 0</span>
+                    <span id="pending">Pendentes: 0</span>
+                    <span id="purchased">Comprados: 0</span>
+                    <span>Filtrar:</span>
+                    <select id="status-filter">
+                        <option value="alls">Todos</option>
+                        <option value="pending">Pendentes</option>
+                        <option value="purchased">Comprados</option>
+                    </select>
+                    <select id="sorted-filter">
+                        <option value="default">Original</option>
+                        <option value="alphabetical">Ordem Alfabetica</option>
+                        <option value="status">Por Status</option>
+                    </select>
+                </div>
+            </form>
+            <ul id="item-list"></ul>
+        </div>
+        <script src="script.js"></script>
+        <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    </body>
+</html>

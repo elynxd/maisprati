@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link href="css/style.css" rel="stylesheet" />
+    </head>
+    <body>
+        <h1>Fetch APIs Async</h1>
+
+        <button id="btnPromise">Execute Promise</button>
+        <p id="outPromise"></p>
+        <button id="btnFetchThen">Execute Fetch</button>
+        <p id="outFetchThen"></p>
+
+        <form
+            id="formFetchAsync"
+            onsubmit="event.preventDefault(); searchingCepAsync();"
+        >
+            <input type="text" id="cepInput" placeholder="Enter CEP" />
+            <button id="btnFetchAsync">Search CEP</button>
+            <p id="outputFetchAsync"></p>
+        </form>
+    </body>
+
+    <script>
+        // Fetch Promise Example
+        async function simulatePromise(value, temp) {
+            return new Promise((resolver, reject) => {
+                setTimeout(() => {
+                    if (value) {
+                        resolver(value);
+                    } else {
+                        reject("Error: " + console.error());
+                    }
+                }, temp);
+
+                const outFetchThen = document.getElementById("outFetchThen");
+                outFetchThen.textContent =
+                    "Rolling executing while waiting to resolve promise";
+            });
+        }
+
+        // Fetch Async/Await Example
+        async function fetchData(url) {
+            const response = await fetch(url);
+            if (!response.ok) {
+                throw new Error("Network response was not ok");
+            }
+            return await response.json();
+        }
+
+        document.getElementById("btnPromise").addEventListener("click", () => {
+            const output = document.getElementById("outPromise");
+            output.textContent = "Loading...";
+            simulatePromise("Olá Mundo!", 3000)
+                .then((msg) => {
+                    output.textContent = msg;
+                })
+                .catch((err) => {
+                    output.textContent = err;
+                });
+
+            const btnFetchThen = (document.getElementById(
+                "btnFetchThen"
+            ).textContent = "Executing with Promise");
+        });
+
+        const btnFetchThen = document.getElementById("btnFetchThen");
+        btnFetchThen.addEventListener("click", () => {
+            btnFetchThen.textContent = "Don't get stucked, just do it";
+        });
+
+        async function searchingCepAsync() {
+            const cep = document.getElementById("cepInput").value;
+            const url = `https://viacep.com.br/ws/${cep}/json/`;
+            try {
+                const data = await fetchData(url, {
+                    method: "GET",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                });
+                console.log(data);
+                const outputFetchAsync =
+                    document.getElementById("outputFetchAsync");
+                outputFetchAsync.textContent = "Searching for CEP...";
+                outputFetchAsync.textContent = `CEP: ${data.cep}, Logradouro: ${data.logradouro}, Bairro: ${data.bairro}, Cidade: ${data.localidade}, UF: ${data.uf}`;
+            } catch (error) {
+                console.error("Fetch error:", error);
+                const outputFetchAsync =
+                    document.getElementById("outputFetchAsync");
+                outputFetchAsync.textContent =
+                    "Error fetching data: " + error.message;
+            }
+        }
+    </script>
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Site interativo</title>
+        <link rel="stylesheet" href="style.css" />
+        <link
+            rel="stylesheet"
+            type="text/css"
+            href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.2/src/bold/style.css"
+        />
+    </head>
+    <body>
+        <header>
+            <div>
+                <a href="#" class="logo">Logo</a>
+            </div>
+            <nav id="navMenu" class="nav">
+                <ul>
+                    <a href="#">Inicio</a>
+                </ul>
+                <ul>
+                    <a href="#">Serviços</a>
+                </ul>
+                <ul>
+                    <a href="#">Contato</a>
+                </ul>
+            </nav>
+            <button id="navToggle" class="navToggle" aria-label="Abrir menu">
+                <i class="ph-bold ph-list" style="font-size: large;"></i>
+            </button>
+        </header>
+
+        <section id="hero" class="hero">
+            <h1>Bem vindo ao nosso site!</h1>
+            <h3>Oferecemos soluções na area de TI</h3>
+            <a href="#" class="btn">Fale conosco</a>
+        </section>
+
+        <section id="services" class="services container">
+            <h2>Nossos serviços</h2>
+            <div class="cards">
+                <div class="card">
+                    <h3>Desenvolvimento Backend</h3>
+                    <p>API seguras e performaticas</p>
+                </div>
+                <div class="card">
+                    <h3>Desenvolvimento Frontend</h3>
+                    <p>Interfaces amigaveis e responsivas</p>
+                </div>
+                <div class="card">
+                    <h3>Consultoria Cloud</h3>
+                    <p>Planejamento de software e arquitetura em cloud</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="contact container">
+            <h2>Contato</h2>
+            <form id="contactForm">
+                <div class="form-group">
+                    <label for="name">Nome completo</label>
+                    <input
+                        id="name"
+                        placeholder="seu nome"
+                        type="text"
+                        name="name"
+                        required
+                    />
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input
+                        id="email"
+                        placeholder="seu melhor email"
+                        type="email"
+                        name="email"
+                        required
+                    />
+                </div>
+                <div class="form-group">
+                    <label for="message">Mensagem</label>
+                    <textarea
+                        id="message"
+                        placeholder="Deixe sua mensagem"
+                        name="message"
+                        rows="4"
+                        required
+                    ></textarea>
+                </div>
+
+                <button type="submit" class="btn">Enviar Mensagem</button>
+            </form>
+        </section>
+
+        <footer class="footer">
+            <div class="footer-container">
+                <p>2025 Nome da marca. Todos os direitos reservados.</p>
+            </div>
+        </footer>
+        <script src="app.js"></script>
+    </body>
+</html>
