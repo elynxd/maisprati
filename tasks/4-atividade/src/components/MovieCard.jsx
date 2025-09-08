@@ -29,6 +29,7 @@ export const MovieCard = ({ movie, showLinkToMovie = true }) => {
                 )}
 
                 <button
+                    type="button"
                     title={inWithlist ? "Remova" : "Adicione"}
                     onClick={() => toggleMyWishList(movie)}
                     className={`absolute top-2 right-2 rounded-full p-2 transition-all duration-200 ${inWithlist ? "text-red-600 shadow-lg" : "bg-red-700 text-zinc-50 hover:bg-black/50 hover:text-red-600"}`}

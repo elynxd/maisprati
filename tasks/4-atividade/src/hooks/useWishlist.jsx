@@ -4,12 +4,12 @@ export const useWishlist = () => {
     const [wishlist, setWishlist] = useState([]);
 
     useEffect(() => {
-        const storedWishlist = localStorage.getItem("movieDesired");
+        const storedWishlist = localStorage.getItem("movie");
         setWishlist(storedWishlist ? JSON.parse(storedWishlist) : []);
     }, []);
 
     useEffect(() => {
-        localStorage.setItem("movieDesired", JSON.stringify(wishlist));
+        localStorage.setItem("movie", JSON.stringify(wishlist));
     }, [wishlist]);
 
     const addToMyWishList = movie => {
