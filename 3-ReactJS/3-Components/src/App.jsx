@@ -2,6 +2,7 @@ import './App.css'
 import { Product } from './components/Product'
 import { Increase } from './components/Increase'
 import { IncreaseFunc } from './components/IncreaseFunc'
+import { LifeCycleFunctionalComponent } from './components/LifeCycleFunctionalComponent'
 
 export function App() {
   const newProducts = [
@@ -24,6 +25,9 @@ export function App() {
 
       <Increase />
       <IncreaseFunc />
+
+      <h1>LifeCycleComponent</h1>
+      <LifeCycleFunctionalComponent />
 
       <footer>
         <p>© 2023 My E-commerce Store</p>
