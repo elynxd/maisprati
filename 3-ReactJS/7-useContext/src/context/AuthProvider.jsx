@@ -1,22 +1,28 @@
-import { useState, useContext, createContext, useMemo } from "react";
+import { useState, useContext, createContext, useMemo, useCallback } from "react";
 
 const AuthContext = createContext(null);
 
 export function AuthProvider({ children }) {
     const [user, setUser] = useState(null);
 
-    const login = (name) => {
-        setUser({ name: name || "User" });
-    };
+    const login = useCallback(() => {
+        setUser({ name: "John Doe", email: "john@example.com" });
+    }, []);
 
-    const logout = () => {
+    const logout = useCallback(() => {
         setUser(null);
-    };
+    }, []);
 
-    const value = useMemo(() => ({ user, login, logout }), [user]);
+    const value = useMemo(() => ({ 
+        user,
+        login,
+        logout
+    }), [user, login, logout]);
 
     return (
-        <AuthContext.Provider value={value}>{children}</AuthContext.Provider>
+        <AuthContext.Provider value={value}>
+            {children}
+        </AuthContext.Provider>
     );
 }
 
