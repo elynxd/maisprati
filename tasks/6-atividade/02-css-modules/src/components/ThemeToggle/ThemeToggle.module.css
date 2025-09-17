@@ -1,0 +1,18 @@
+.select {
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    padding: 0.4em 1em;
+    font-size: 1em;
+    font-weight: 500;
+    font-family: inherit;
+    background-color: var(--select-bg);
+    color: var(--select-text);
+    cursor: pointer;
+    transition:
+        border-color 0.25s,
+        background-color 0.3s ease;
+}
+
+.select:hover {
+    border-color: var(--link-color);
+}

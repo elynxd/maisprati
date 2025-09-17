@@ -1,0 +1,68 @@
+:root {
+  font-family: "Arial", Avenir, Helvetica, system-ui, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Light theme variables */
+[data-theme="light"] {
+  --bg-primary: #f1f1f1;
+  --bg-secondary: #f1f1f1;
+  --text-primary: #212529;
+  --text-secondary: #6c757d;
+  --border-color: #dee2e6;
+  --shadow: rgba(0, 0, 0, 0.1);
+  --card-bg: #ffffff;
+  --button-bg: #f8f9fa;
+  --select-bg: #212529;
+  --select-text: #f1f1f1;
+  --link-color: #0d6efd;
+  --link-hover: #0a58ca;
+  --badge-bg: #fa6555;
+  --badge-fg: #f1f1f1;
+}
+
+/* Dark theme variables */
+[data-theme="dark"] {
+  --bg-primary: #0a0908;
+  --bg-secondary: #1a1a1a;
+  --text-primary: #ffffff;
+  --text-secondary: #adb5bd;
+  --border-color: #353636;
+  --shadow: rgba(0, 0, 0, 0.3);
+  --card-bg: #212529;
+  --button-bg: #343a40;
+  --select-bg: #212529;
+  --select-text: #ffffff;
+  --link-color: #6ea8fe;
+  --link-hover: #9ec5fe;
+  --badge-bg: #fa6555;
+  --badge-fg: #f1f1f1;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: system-ui, Helvetica, Arial;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+a {
+  font-weight: 500;
+  color: var(--link-color);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--link-hover);
+}
